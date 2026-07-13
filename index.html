@@ -998,6 +998,42 @@ ___________
                             </button>
                         </div>
 
+                        <div class="card searchable">
+                              <h3 class="card-title">تقرير الغياب</h3>
+                                 <!-- تم تغيير id هنا إلى template-absence -->
+                   <div id="template-absence" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*📄 تقرير غياب :* 
+
+*🔹القسم :*
+*🔹أمينة القسم:* 
+*🔹نائبة الأمينة القسم:*
+*🔹المادة:* 
+*🔹مساعد المادة:* 
+➖➖➖➖➖➖➖➖
+*▫️اليوم :* 
+*▫️التاريخ:* 
+*▫️رقم المحاضرة :* 
+➖➖➖➖➖➖➖➖
+*♦️اسماء الغائبين بغير عذر :*
+
+*♦️ الحاضرين أقل من الوقت المحسوب :* 
+
+➖➖➖➖➖➖➖➖➖➖➖➖
+*❗ لكل غياب خصم [ 2 ]  درجات*
+*❗الغياب 3 محاضرات يُدرج  في قائمة الإنذار*
+*❗الغياب 4 محاضرات يؤدي إلى الحرمان*
+`⚠️ نؤكد على الالتزام التام بالحضور وتحمّل المسؤولية الأكاديمية`
+📩 في حال وجود عذر:
+يُقدم إلى أمينة القسم
+@
+</div>
+                   <!-- تم تغيير الاسم هنا أيضاً داخل الدالة ليتطابق مع الـ id الجديد -->
+                  <button class="card-btn" onclick="copyTemplateText(this, 'template-absence')">
+                      <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor; margin-left: 5px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                      نسخ النص
+                      </button>
+                    </div>
+
+
                     </div>
                 </div>
 
