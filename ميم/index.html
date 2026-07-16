@@ -4,535 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة المساعدين | Knowledge Base</title>
-    <style>
-        /* ==========================================================================
-           1. الجذور والمتغيرات (CSS Variables) - دعم الوضع الفاتح والليلي
-           ========================================================================== */
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
-
-        :root {
-            /* الألوان الفاتحة (الافتراضية) */
-            --bg-body: #f8fafc;
-            --bg-surface: #ffffff;
-            --bg-sidebar: #ffffff;
-            --bg-hover: #f1f5f9;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --primary-color: #4d73c7;
-            --primary-hover: #2d4a99;
-            --primary-light: #eff6ff;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --note-bg: #fffbeb;
-            --note-border: #f59e0b;
-            --alert-bg: #fef2f2;
-            --alert-border: #ef4444;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        [data-theme="dark"] {
-            /* الألوان الداكنة */
-            --bg-body: #0f172a;
-            --bg-surface: #1e293b;
-            --bg-sidebar: #1e293b;
-            --bg-hover: #334155;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --primary-color: #668ece;
-            --primary-hover: #6595d0;
-            --primary-light: #364674;
-            --border-color: #334155;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --note-bg: #422006;
-            --note-border: #f59e0b;
-            --alert-bg: #450a0a;
-            --alert-border: #ef4444;
-        }
-
-        /* ==========================================================================
-           2. الإعدادات الأساسية والطباعة (Reset & Typography)
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color var(--transition), color var(--transition);
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        button { cursor: pointer; border: none; background: none; font-family: inherit; }
-
-        /* ==========================================================================
-           3. الهيكل الأساسي (Layout)
-           ========================================================================== */
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* القائمة الجانبية */
-        .sidebar {
-            width: 280px;
-            background-color: var(--bg-sidebar);
-            border-left: 1px solid var(--border-color);
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            transition: transform var(--transition), background-color var(--transition);
-        }
-
-        .sidebar-header {
-            padding: 24px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .sidebar-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-light);
-            color: var(--primary-color);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .sidebar-header h2 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .sidebar-nav {
-            padding: 16px 12px;
-            flex-grow: 1;
-            overflow-y: auto;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            margin-bottom: 4px;
-            border-radius: var(--radius-md);
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .nav-item svg { width: 20px; height: 20px; fill: currentColor; }
-
-        .nav-item:hover {
-            background-color: var(--bg-hover);
-            color: var(--text-main);
-        }
-
-        .nav-item.active {
-            background-color: var(--primary-light);
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        /* المحتوى الرئيسي */
-        .main-content {
-            flex-grow: 1;
-            margin-right: 280px; /* تعويض مساحة الشريط الجانبي */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* الشريط العلوي */
-        .topbar {
-            height: 80px;
-            background-color: var(--bg-body);
-            position: sticky;
-            top: 0;
-            z-index: 90;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 32px;
-            backdrop-filter: blur(10px);
-            background-color: rgba(var(--bg-body), 0.8);
-        }
-
-        .search-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .search-container svg {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            fill: var(--text-muted);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 20px 12px 48px;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            background-color: var(--bg-surface);
-            color: var(--text-main);
-            font-size: 0.95rem;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .search-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px var(--primary-light);
-        }
-
-        .topbar-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .icon-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .icon-btn:hover {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .icon-btn svg { width: 20px; height: 20px; fill: currentColor; }
-
-        .menu-toggle { display: none; }
-
-        /* حاوية الصفحات */
-        .pages-container {
-            padding: 32px;
-            flex-grow: 1;
-        }
-
-        /* ==========================================================================
-           4. المكونات (Components)
-           ========================================================================== */
-        
-        /* البطاقات (Cards) */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-        .card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-light);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            background-color: var(--primary-light);
-            color: var(--primary-color);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .card-icon svg { width: 24px; height: 24px; fill: currentColor; }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-main);
-        }
-
-        .card-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
-
-        .card-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--primary-light);
-            color: var(--primary-color);
-            padding: 10px 16px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            align-self: flex-start;
-        }
-
-        .card-btn:hover {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-
-        /* مربعات الملاحظات (Note Boxes) */
-        .note-box {
-            background-color: var(--note-bg);
-            border-right: 4px solid var(--note-border);
-            padding: 16px;
-            border-radius: 8px 0 0 8px;
-            margin-top: 16px;
-            font-size: 0.9rem;
-            color: var(--text-main);
-        }
-
-        .alert-box {
-            background-color: var(--alert-bg);
-            border-right: 4px solid var(--alert-border);
-            padding: 16px;
-            border-radius: 8px 0 0 8px;
-            margin-top: 16px;
-            font-size: 0.9rem;
-            color: var(--text-main);
-        }
-
-        /* الأكورديون (Accordion) للأسئلة الشائعة */
-        .accordion {
-            margin-top: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .accordion-item {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        .accordion-header {
-            width: 100%;
-            text-align: right;
-            padding: 20px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: none;
-            transition: var(--transition);
-        }
-
-        .accordion-header:hover { background-color: var(--bg-hover); }
-        
-        .accordion-header svg {
-            width: 20px; height: 20px; fill: var(--text-muted);
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-item.active .accordion-header svg { transform: rotate(180deg); }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background-color: var(--bg-surface);
-        }
-
-        .accordion-content-inner {
-            padding: 0 20px 20px 20px;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        /* الترويسة الرئيسية للصفحات */
-        .page-header {
-            margin-bottom: 32px;
-            animation: fadeInDown 0.5s ease-out;
-        }
-
-        .page-header h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
-
-        .page-header p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        /* زر العودة للأعلى */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 99;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            background-color: var(--primary-hover);
-        }
-
-        /* نظام الصفحات المتعددة (SPA) */
-        .page-view {
-            display: none;
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        .page-view.active { display: block; }
-
-        /* ==========================================================================
-           5. التجاوب مع الشاشات (Responsive Design)
-           ========================================================================== */
-        .overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0,0,0,0.5); z-index: 95;
-            display: none; opacity: 0; transition: opacity 0.3s ease;
-        }
-
-        @media (max-width: 992px) {
-            .sidebar { transform: translateX(100%); } /* إخفاء لليمين في الـ RTL */
-            .sidebar.open { transform: translateX(0); box-shadow: var(--shadow-lg); }
-            .main-content { margin-right: 0; }
-            .menu-toggle { display: flex; }
-            .overlay.active { display: block; opacity: 1; }
-            .topbar { padding: 0 16px; }
-            .pages-container { padding: 24px 16px; }
-        }
-
-        /* ==========================================================================
-           6. الحركات (Animations)
-           ========================================================================== */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* تأثيرات خاصة بدليل زووم */
-        .zoom-key {
-            display: flex; align-items: center; gap: 12px; padding: 12px;
-            background: var(--bg-hover); border-radius: 8px; margin-bottom: 8px;
-        }
-        .zoom-key svg { width: 24px; height: 24px; fill: var(--text-main); }
-        .zoom-key span { font-weight: 600; font-family: monospace; }
-        
-        /* ==========================================================================
-           7. دعم اللغة الإنجليزية (LTR Layout Fixes)
-           ========================================================================== */
-        [dir="ltr"] .sidebar {
-            right: auto;
-            left: 0;
-            border-left: none;
-            border-right: 1px solid var(--border-color);
-        }
-        [dir="ltr"] .main-content {
-            margin-right: 0;
-            margin-left: 280px;
-        }
-        [dir="ltr"] .search-container svg {
-            right: auto;
-            left: 16px;
-        }
-        [dir="ltr"] .search-input {
-            padding: 12px 48px 12px 20px;
-        }
-        [dir="ltr"] .note-box, 
-        [dir="ltr"] .alert-box {
-            border-right: none;
-            border-left: 4px solid var(--note-border);
-            border-radius: 0 8px 8px 0;
-        }
-        [dir="ltr"] .accordion-header {
-            text-align: left;
-        }
-        [dir="ltr"] ul[style*="margin-right"] {
-            margin-right: 0 !important;
-            margin-left: 20px !important;
-        }
-
-        @media (max-width: 992px) {
-            [dir="ltr"] .sidebar { transform: translateX(-100%); }
-            [dir="ltr"] .sidebar.open { transform: translateX(0); }
-            [dir="ltr"] .main-content { margin-left: 0; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="app-container">
         
-        <div class="overlay" id="overlay"></div>
+        <div class="overlay" id="dimOverlay"></div>
 
-        <aside class="sidebar" id="sidebar">
+        <aside class="sidebar" id="sideNav">
             <div class="sidebar-header">
                 <div class="sidebar-logo">
                     <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg>
@@ -584,23 +64,23 @@
         <main class="main-content">
             
             <header class="topbar">
-                <button class="icon-btn menu-toggle" id="menuToggle">
+                <button class="icon-btn menu-toggle" id="mobMenuBtn">
                     <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
                 </button>
                 
                 <div class="search-container">
-                    <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="أبحث عن Host, تسجيل, Excel...">
+                    <input type="text" class="search-input" id="searchField" data-i18n-placeholder="search_placeholder" placeholder="أبحث عن Host, تسجيل, Excel...">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 </div>
 
                 <div class="topbar-actions">
-                    <!-- زر تغيير اللغة الجديد -->
-                    <button class="icon-btn" id="langToggle" title="تغيير اللغة / Change Language">
+                    <button class="icon-btn" id="btnLangSwitch" title="تغيير اللغة / Change Language">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
                         </svg>
                     </button>
 
-                    <button class="icon-btn" id="themeToggle" title="تبديل الوضع الليلي">
+                    <button class="icon-btn" id="btnThemeSwitch" title="تبديل الوضع الليلي">
                         <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/></svg>
                     </button>
                 </div>
@@ -620,31 +100,31 @@
                             <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg></div>
                             <h3 class="card-title" data-i18n="nav_before">قبل المحاضرة</h3>
                             <p class="card-desc" data-i18n="card_before_desc">تجهيز إعلان المحاضرة، إرسال التذكيرات للطلاب والدكتور، والإعدادات المسبقة.</p>
-                            <button class="card-btn" onclick="app.navigate('before-lecture')" data-i18n="open_section">فتح القسم</button>
+                            <button class="card-btn" onclick="uiManager.goTo('before-lecture')" data-i18n="open_section">فتح القسم</button>
                         </div>
                         <div class="card">
                             <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg></div>
                             <h3 class="card-title" data-i18n="nav_during">أثناء المحاضرة</h3>
                             <p class="card-desc" data-i18n="card_during_desc">إدارة القاعة، منح الصلاحيات،التحكم بالمايكروفونات.</p>
-                            <button class="card-btn" onclick="app.navigate('during-lecture')" data-i18n="open_section">فتح القسم</button>
+                            <button class="card-btn" onclick="uiManager.goTo('during-lecture')" data-i18n="open_section">فتح القسم</button>
                         </div>
                         <div class="card">
                             <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
                             <h3 class="card-title" data-i18n="nav_after">بعد المحاضرة</h3>
                             <p class="card-desc" data-i18n="card_after_desc">سحب ملف الحضور (Excel)، رفع التقارير، والتعامل مع أعذار الطلاب، رفع تسجيلات المحاضرة.</p>
-                            <button class="card-btn" onclick="app.navigate('after-lecture')" data-i18n="open_section">فتح القسم</button>
+                            <button class="card-btn" onclick="uiManager.goTo('after-lecture')" data-i18n="open_section">فتح القسم</button>
                         </div>
                         <div class="card">
                             <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
                             <h3 class="card-title" data-i18n="nav_scenarios">الحالات الشائعة</h3>
                             <p class="card-desc" data-i18n="card_scenarios_desc">ماذا تفعل إذا واجهتك مشكلة تقنية أو طارئة أثناء إدارة المحاضرة.</p>
-                            <button class="card-btn" onclick="app.navigate('scenarios')" data-i18n="open_section">فتح القسم</button>
+                            <button class="card-btn" onclick="uiManager.goTo('scenarios')" data-i18n="open_section">فتح القسم</button>
                         </div>
                             <div class="card">
                             <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
                             <h3 class="card-title" data-i18n="nav_videos">فيديوهات توضيحية</h3>
                             <p class="card-desc" data-i18n="card_videos_desc">شروحات توضيحية لآلية استلام الهوست، والتحكم بالكاميرات والمايكروفونات للطلاب من مختلف الأجهزة، بالإضافة إلى شرح طريقة التحضير باستخدام الذكاء الاصطناعي.</p>
-                            <button class="card-btn" onclick="app.navigate('tutorial-videos')" data-i18n="open_section">فتح القسم</button>
+                            <button class="card-btn" onclick="uiManager.goTo('tutorial-videos')" data-i18n="open_section">فتح القسم</button>
                         </div>
                     </div>
                 </div>
@@ -845,7 +325,6 @@
                         <p data-i18n="zoom_page_desc">شرح مختصر لوظائف الواجهة.</p>
                     </div>
                     
-
                     <div class="cards-grid searchable-container">
                         <div class="card searchable">
                             <div class="zoom-key" style="color: #ef4444;">
@@ -983,7 +462,7 @@
                         
                         <div class="card searchable">
                             <h3 class="card-title">إعلان المحاضرة</h3>
-                            <div id="template-announce" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*           *`📢 إعـــــــــلان` 📢*
+                            <div id="msgBlock1" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*            *`📢 إعـــــــــلان` 📢*
 
 *🔸 محاضرات يوم:*
 
@@ -1002,7 +481,7 @@
 🔒 : Meeting ID : 
 Passcode :
 </div>
-                            <button class="card-btn" onclick="copyTemplateText(this, 'template-announce')">
+                            <button class="card-btn" onclick="copyBoxData(this, 'msgBlock1')">
                                 <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor; margin-left: 5px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                                 <span data-i18n="copy_text">نسخ النص</span>
                             </button>
@@ -1010,7 +489,7 @@ Passcode :
 
                         <div class="card searchable">
                             <h3 class="card-title">تقرير المحاضرة المعتاد</h3>
-                            <div id="template-report" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*📄تقرير محاضرة :* 
+                            <div id="msgBlock2" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*📄تقرير محاضرة :* 
 *♦️المرحلة:*
 *♦️القسم:*
 *♦️أمين القسم :*
@@ -1049,7 +528,7 @@ ___________
 
 *والله ولي التوفيق* 
 </div>
-                            <button class="card-btn" onclick="copyTemplateText(this, 'template-report')">
+                            <button class="card-btn" onclick="copyBoxData(this, 'msgBlock2')">
                                 <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor; margin-left: 5px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                                 <span data-i18n="copy_text">نسخ النص</span>
                             </button>
@@ -1057,8 +536,7 @@ ___________
 
                         <div class="card searchable">
                               <h3 class="card-title">تقرير الغياب</h3>
-                                 <!-- تم تغيير id هنا إلى template-absence -->
-                   <div id="template-absence" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*📄 تقرير غياب :* 
+                   <div id="msgBlock3" style="white-space: pre-wrap; background: var(--bg-hover); padding: 12px; border-radius: 8px; margin-bottom: 16px; color: var(--text-main); font-size: 0.95rem; border: 1px dashed var(--border-color);">*📄 تقرير غياب :* 
 
 *🔹القسم :*
 *🔹أمينة القسم:* 
@@ -1083,8 +561,7 @@ ___________
 يُقدم إلى أمينة القسم
 @
 </div>
-                   <!-- تم تغيير الاسم هنا أيضاً داخل الدالة ليتطابق مع الـ id الجديد -->
-                  <button class="card-btn" onclick="copyTemplateText(this, 'template-absence')">
+                  <button class="card-btn" onclick="copyBoxData(this, 'msgBlock3')">
                       <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor; margin-left: 5px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                       <span data-i18n="copy_text">نسخ النص</span>
                       </button>
@@ -1097,9 +574,9 @@ ___________
                 <div id="search-results-view" class="page-view">
                     <div class="page-header">
                         <h1 data-i18n="search_page_title">نتائج البحث 🔍</h1>
-                        <p id="search-count-text">يتم عرض النتائج...</p>
+                        <p id="searchStatusInfo">يتم عرض النتائج...</p>
                     </div>
-                    <div id="search-results-container" class="cards-grid">
+                    <div id="resultsGridArea" class="cards-grid">
                         </div>
                 </div>
 
@@ -1107,386 +584,10 @@ ___________
         </main>
     </div>
 
-    <button class="back-to-top" id="backToTop" title="العودة للأعلى">
+    <button class="back-to-top" id="btnScrollUp" title="العودة للأعلى">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
     </button>
 
-    <script>
-        // --- 1. قاموس الترجمة الجديد ---
-        const translations = {
-            ar: {
-                portal_title: "بوابة المساعدين",
-                nav_home: "الرئيسية",
-                nav_before: "قبل المحاضرة",
-                nav_during: "أثناء المحاضرة",
-                nav_after: "بعد المحاضرة",
-                nav_faq: "الأسئلة المتكررة",
-                nav_scenarios: "الحالات الشائعة",
-                nav_zoom: "دليل Zoom",
-                nav_videos: "الفيديوهات التوضيحية",
-                nav_templates: "النماذج الجاهزة",
-                search_placeholder: "ابحث عن Host, تسجيل, Excel...",
-                home_title: "بوابة المساعدين",
-                home_desc: "كل ما يحتاجه المساعد قبل وأثناء وبعد المحاضرة في مكان واحد.",
-                home_quote: '"والله في عون العبد ما كان العبد في عون أخيه"',
-                open_section: "فتح القسم",
-                card_before_desc: "تجهيز إعلان المحاضرة، إرسال التذكيرات للطلاب والدكتور، والإعدادات المسبقة.",
-                card_during_desc: "إدارة القاعة، منح الصلاحيات،التحكم بالمايكروفونات.",
-                card_after_desc: "سحب ملف الحضور (Excel)، رفع التقارير، والتعامل مع أعذار الطلاب، رفع تسجيلات المحاضرة.",
-                card_scenarios_desc: "ماذا تفعل إذا واجهتك مشكلة تقنية أو طارئة أثناء إدارة المحاضرة.",
-                card_videos_desc: "شروحات توضيحية لآلية استلام الهوست، والتحكم بالكاميرات والمايكروفونات للطلاب من مختلف الأجهزة، بالإضافة إلى شرح طريقة التحضير باستخدام الذكاء الاصطناعي.",
-                before_page_title: "قبل المحاضرة 📅",
-                before_page_desc: "قائمة المهام التي يجب إنجازها قبل بدء المحاضرة.",
-                during_page_title: "أثناء المحاضرة 🎥",
-                during_page_desc: "الخطوات التنفيذية لضمان سير المحاضرة بسلاسة واحترافية.",
-                after_page_title: "بعد المحاضرة 📄",
-                after_page_desc: "الإجراءات الإدارية وتوثيق البيانات.",
-                faq_page_title: "الأسئلة المتكررة ❓",
-                faq_page_desc: "إجابات سريعة للأسئلة الأكثر شيوعاً بين المساعدين.",
-                scenarios_page_title: "ماذا أفعل إذا... 📌",
-                scenarios_page_desc: "دليل الاستجابة السريعة للمواقف الطارئة.",
-                zoom_page_title: "دليل أزرار Zoom 📚",
-                zoom_page_desc: "شرح مختصر لوظائف الواجهة.",
-                videos_page_title: "الفيديوهات التوضيحية 🎥",
-                videos_page_desc: "شروحات مرئية لحل المشاكل التقنية مقسمة حسب نوع الجهاز.",
-                templates_page_title: "النماذج الجاهزة 📝",
-                templates_page_desc: "انسخ النماذج بضغطة زر.",
-                search_page_title: "نتائج البحث 🔍",
-                copy_text: "نسخ النص",
-                reminders_title: "إرسال التذكيرات",
-                zoom_link_title: "رابط Zoom",
-                talk_title: "التحدث وعرض المادة",
-                prep_title: "التجهيز الشخصي",
-                host_auth_title: "استلام ومنح الصلاحيات",
-                mic_cam_title: "إغلاق الكاميرات والمايك",
-                record_title: "التحكم بالتسجيل",
-                end_5min_title: "قبل نهاية المحاضرة بـ 5 دقائق",
-                excel_title: "استخراج ملف الحضور (Excel)",
-                reports_title: "رفع التقارير",
-                upload_records_title: "رفع التسجيلات",
-                excuses_title: "إدارة الأعذار",
-            },
-            en: {
-                portal_title: "Assistants Portal",
-                nav_home: "Home",
-                nav_before: "Before Lecture",
-                nav_during: "During Lecture",
-                nav_after: "After Lecture",
-                nav_faq: "FAQ",
-                nav_scenarios: "Common Scenarios",
-                nav_zoom: "Zoom Guide",
-                nav_videos: "Tutorial Videos",
-                nav_templates: "Templates",
-                search_placeholder: "Search for Host, Record, Excel...",
-                home_title: "Assistants Portal",
-                home_desc: "Everything an assistant needs before, during, and after the lecture in one place.",
-                home_quote: '"God helps the servant as long as the servant helps his brother"',
-                open_section: "Open Section",
-                card_before_desc: "Prepare lecture announcements, send reminders, and adjust preset settings.",
-                card_during_desc: "Manage the room, grant permissions, and control microphones.",
-                card_after_desc: "Extract attendance files, submit reports, handle excuses, and upload recordings.",
-                card_scenarios_desc: "What to do if you face a technical or emergency issue during the lecture.",
-                card_videos_desc: "Visual guides on how to claim Host, control cameras/mics, and AI attendance.",
-                before_page_title: "Before Lecture 📅",
-                before_page_desc: "Task list to be completed before the lecture begins.",
-                during_page_title: "During Lecture 🎥",
-                during_page_desc: "Executive steps to ensure the lecture runs smoothly and professionally.",
-                after_page_title: "After Lecture 📄",
-                after_page_desc: "Administrative procedures and data documentation.",
-                faq_page_title: "Frequently Asked Questions ❓",
-                faq_page_desc: "Quick answers to the most common questions among assistants.",
-                scenarios_page_title: "What should I do if... 📌",
-                scenarios_page_desc: "Quick response guide for emergency situations.",
-                zoom_page_title: "Zoom Buttons Guide 📚",
-                zoom_page_desc: "Brief explanation of interface functions.",
-                videos_page_title: "Tutorial Videos 🎥",
-                videos_page_desc: "Visual guides to solve technical issues categorized by device type.",
-                templates_page_title: "Ready Templates 📝",
-                templates_page_desc: "Copy templates with a click of a button.",
-                search_page_title: "Search Results 🔍",
-                copy_text: "Copy Text",
-                reminders_title: "Send Reminders",
-                zoom_link_title: "Zoom Link",
-                talk_title: "Speaking & Presentation",
-                prep_title: "Personal Preparation",
-                host_auth_title: "Claiming & Granting Permissions",
-                mic_cam_title: "Muting Mics & Cameras",
-                record_title: "Recording Control",
-                end_5min_title: "5 Minutes Before End",
-                excel_title: "Extract Attendance (Excel)",
-                reports_title: "Submit Reports",
-                upload_records_title: "Upload Recordings",
-                excuses_title: "Manage Excuses",
-            }
-        };
-
-        const app = {
-            init() {
-                this.cacheDOM();
-                this.bindEvents();
-                this.initTheme();
-                this.initLanguage(); // تفعيل الترجمة عند بدء التشغيل
-            },
-
-            cacheDOM() {
-                this.navItems = document.querySelectorAll('.nav-item');
-                this.pageViews = document.querySelectorAll('.page-view');
-                this.themeToggleBtn = document.getElementById('themeToggle');
-                this.langToggleBtn = document.getElementById('langToggle'); // زر الترجمة
-                this.htmlEl = document.documentElement;
-                this.sidebar = document.getElementById('sidebar');
-                this.menuToggle = document.getElementById('menuToggle');
-                this.overlay = document.getElementById('overlay');
-                this.accordions = document.querySelectorAll('.accordion-header');
-                this.searchInput = document.getElementById('searchInput');
-                this.searchResultsView = document.getElementById('search-results-view');
-                this.searchResultsContainer = document.getElementById('search-results-container');
-                this.searchCountText = document.getElementById('search-count-text');
-                this.backToTopBtn = document.getElementById('backToTop');
-            },
-
-            bindEvents() {
-                // التنقل بين الصفحات
-                this.navItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        const target = item.getAttribute('data-target');
-                        this.navigate(target);
-                        this.closeSidebarOnMobile();
-                        this.clearSearch();
-                    });
-                });
-
-                // الوضع الليلي
-                this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
-
-                // تغيير اللغة
-                this.langToggleBtn.addEventListener('click', () => this.toggleLanguage());
-
-                // الموبايل منيو
-                this.menuToggle.addEventListener('click', () => this.toggleSidebar());
-                this.overlay.addEventListener('click', () => this.closeSidebarOnMobile());
-
-                // الأكورديون (الأسئلة الشائعة)
-                this.accordions.forEach(acc => {
-                    acc.addEventListener('click', function() {
-                        const item = this.parentElement;
-                        const content = this.nextElementSibling;
-                        
-                        item.classList.toggle('active');
-                        if (item.classList.contains('active')) {
-                            content.style.maxHeight = content.scrollHeight + "px";
-                        } else {
-                            content.style.maxHeight = null;
-                        }
-                    });
-                });
-
-                // البحث
-                this.searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
-
-                // العودة للأعلى
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 300) {
-                        this.backToTopBtn.classList.add('visible');
-                    } else {
-                        this.backToTopBtn.classList.remove('visible');
-                    }
-                });
-
-                this.backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            },
-
-            navigate(targetId) {
-                // 1. إخفاء جميع الصفحات وتجريد الأزرار من حالة "النشط"
-                this.pageViews.forEach(page => page.classList.remove('active'));
-                this.navItems.forEach(item => item.classList.remove('active'));
-
-                // 2. إظهار الصفحة المطلوبة
-                const targetPage = document.getElementById(targetId);
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                }
-
-                // 3. تفعيل زر القائمة الجانبية المرتبط
-                const targetNavItem = document.querySelector(`.nav-item[data-target="${targetId}"]`);
-                if (targetNavItem) {
-                    targetNavItem.classList.add('active');
-                }
-
-                // 4. الانتقال لأعلى الصفحة بسلاسة
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            },
-
-            initTheme() {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark') {
-                    this.htmlEl.setAttribute('data-theme', 'dark');
-                    this.updateThemeIcon('dark');
-                }
-            },
-
-            toggleTheme() {
-                const isDark = this.htmlEl.getAttribute('data-theme') === 'dark';
-                if (isDark) {
-                    this.htmlEl.removeAttribute('data-theme');
-                    localStorage.setItem('theme', 'light');
-                    this.updateThemeIcon('light');
-                } else {
-                    this.htmlEl.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                    this.updateThemeIcon('dark');
-                }
-            },
-
-            updateThemeIcon(theme) {
-                // استبدال أيقونة الشمس/القمر
-                if (theme === 'dark') {
-                    this.themeToggleBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>';
-                } else {
-                    this.themeToggleBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/></svg>';
-                }
-            },
-
-            // --- 2. دوال ميزة الترجمة الجديدة ---
-            initLanguage() {
-                const savedLang = localStorage.getItem('lang') || 'ar';
-                this.setLanguage(savedLang);
-            },
-
-            toggleLanguage() {
-                const currentLang = this.htmlEl.getAttribute('lang');
-                const newLang = currentLang === 'ar' ? 'en' : 'ar';
-                this.setLanguage(newLang);
-            },
-
-            setLanguage(lang) {
-                // تغيير اتجاه ولغة الصفحة
-                this.htmlEl.setAttribute('lang', lang);
-                this.htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-                localStorage.setItem('lang', lang);
-
-                // تطبيق الترجمة على النصوص
-                document.querySelectorAll('[data-i18n]').forEach(element => {
-                    const key = element.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) {
-                        element.innerHTML = translations[lang][key];
-                    }
-                });
-
-                // تطبيق الترجمة على الـ Placeholder
-                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                    const key = element.getAttribute('data-i18n-placeholder');
-                    if (translations[lang] && translations[lang][key]) {
-                        element.placeholder = translations[lang][key];
-                    }
-                });
-            },
-
-            toggleSidebar() {
-                this.sidebar.classList.toggle('open');
-                this.overlay.classList.toggle('active');
-            },
-
-            closeSidebarOnMobile() {
-                if (window.innerWidth <= 992) {
-                    this.sidebar.classList.remove('open');
-                    this.overlay.classList.remove('active');
-                }
-            },
-
-            handleSearch(query) {
-                const searchTerm = query.trim().toLowerCase();
-                
-                if (searchTerm === '') {
-                    // إذا كان البحث فارغاً، عد إلى الصفحة المحددة في القائمة الجانبية
-                    const activeTarget = document.querySelector('.nav-item.active').getAttribute('data-target');
-                    this.navigate(activeTarget);
-                    return;
-                }
-
-                // إخفاء جميع الصفحات وعرض صفحة نتائج البحث
-                this.pageViews.forEach(page => page.classList.remove('active'));
-                this.searchResultsView.classList.add('active');
-                this.searchResultsContainer.innerHTML = ''; // تنظيف النتائج السابقة
-
-                // جمع جميع العناصر القابلة للبحث (البطاقات وعناصر الأكورديون)
-                const searchables = document.querySelectorAll('.searchable');
-                let matchCount = 0;
-
-                searchables.forEach(el => {
-                    const textContent = el.innerText.toLowerCase();
-                    if (textContent.includes(searchTerm)) {
-                        matchCount++;
-                        // استنساخ العنصر وعرضه في حاوية البحث
-                        const clone = el.cloneNode(true);
-                        
-                        // تعديلات تصميمية للمستنسخات في البحث
-                        if (clone.classList.contains('accordion-item')) {
-                            clone.style.width = '100%'; // لملء العرض
-                            // تفعيل النقر داخل نتيجة البحث للأكورديون
-                            const btn = clone.querySelector('.accordion-header');
-                            btn.addEventListener('click', function() {
-                                clone.classList.toggle('active');
-                                const content = this.nextElementSibling;
-                                if (clone.classList.contains('active')) {
-                                    content.style.maxHeight = content.scrollHeight + "px";
-                                } else {
-                                    content.style.maxHeight = null;
-                                }
-                            });
-                        }
-                        
-                        this.searchResultsContainer.appendChild(clone);
-                    }
-                });
-
-                const lang = this.htmlEl.getAttribute('lang') || 'ar';
-                if (matchCount === 0) {
-                    const msg = lang === 'ar' ? `لم يتم العثور على أي نتائج لكلمة: <strong>"${query}"</strong>` : `No results found for: <strong>"${query}"</strong>`;
-                    this.searchCountText.innerHTML = msg;
-                } else {
-                    const msg = lang === 'ar' ? `تم العثور على <strong>${matchCount}</strong> نتيجة:` : `Found <strong>${matchCount}</strong> result(s):`;
-                    this.searchCountText.innerHTML = msg;
-                }
-            },
-
-            clearSearch() {
-                this.searchInput.value = '';
-            }
-        };
-
-        // دالة لنسخ النصوص مع الاحتفاظ بالتنسيق والمسافات
-        function copyTemplateText(buttonElement, elementId) {
-            const textElement = document.getElementById(elementId);
-            const textToCopy = textElement.innerText; 
-            
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalHTML = buttonElement.innerHTML;
-                const lang = document.documentElement.getAttribute('lang') || 'ar';
-                const successText = lang === 'ar' ? '✅ تم النسخ بنجاح!' : '✅ Copied Successfully!';
-                
-                buttonElement.innerHTML = successText;
-                buttonElement.style.backgroundColor = '#10b981';
-                buttonElement.style.color = '#ffffff';
-                
-                setTimeout(() => {
-                    buttonElement.innerHTML = originalHTML;
-                    buttonElement.style.backgroundColor = ''; 
-                    buttonElement.style.color = '';
-                }, 2000);
-            }).catch(err => {
-                const lang = document.documentElement.getAttribute('lang') || 'ar';
-                const errorText = lang === 'ar' ? 'حدث خطأ أثناء النسخ، الرجاء المحاولة مرة أخرى.' : 'Error copying text, please try again.';
-                alert(errorText);
-            });
-        }
-
-        // تهيئة التطبيق عند تحميل المستند
-        document.addEventListener('DOMContentLoaded', () => {
-            app.init();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
