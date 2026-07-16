@@ -244,6 +244,77 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     height: 100%;
 }
 
+/* تنسيق النافذة المنبثقة (خلفية شفافة داكنة) */
+.custom-video-modal {
+    display: none; /* مخفي بشكل افتراضي */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* خلفية داكنة مع شفافية */
+    backdrop-filter: blur(5px); /* تأثير ضبابي للخلفية */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* إظهار النافذة */
+.custom-video-modal.show-modal {
+    display: flex;
+    opacity: 1;
+}
+
+/* المربع الداخلي للنافذة (متوافق مع الوضعين الليلي والنهاري) */
+.modal-content-box {
+    position: relative;
+    background-color: #ffffff; /* لون نهاري افتراضي */
+    border-radius: 12px;
+    padding: 20px;
+    padding-top: 40px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* دعم الوضع الليلي تلقائياً */
+@media (prefers-color-scheme: dark) {
+    .modal-content-box {
+        background-color: #1e1e1e; /* لون داكن للمربع */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* زر الإغلاق */
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    color: #ff4757; /* لون أحمر عند التمرير */
+}
+
+#modalVideoPlayer {
+    width: 100%;
+    height: auto; /* دع المتصفح يحدد الطول المناسب حسب الفيديو */
+    max-height: 80vh; /* زيادة المساحة قليلاً لتستوعب الفيديوهات الطولية */
+    object-fit: contain; /* هذا هو السطر السحري: يمنع التمدد ويحافظ على أبعاد الفيديو */
+    border-radius: 8px;
+    background-color: #000;
+    outline: none;
+    display: block; /* لضمان عدم وجود مسافات إضافية في الأسفل */
+}
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
@@ -481,4 +552,77 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     [dir="ltr"] .sidebar { transform: translateX(-100%); }
     [dir="ltr"] .sidebar.open { transform: translateX(0); }
     [dir="ltr"] .main-content { margin-left: 0; }
+}
+
+/* تنسيق النافذة المنبثقة (خلفية شفافة داكنة) */
+.custom-video-modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(5px); 
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* إظهار النافذة */
+.custom-video-modal.show-modal {
+    display: flex;
+    opacity: 1;
+}
+
+/* المربع الداخلي للنافذة */
+.modal-content-box {
+    position: relative;
+    background-color: #ffffff; 
+    border-radius: 12px;
+    padding: 20px;
+    padding-top: 40px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* دعم الوضع الليلي تلقائياً */
+@media (prefers-color-scheme: dark) {
+    .modal-content-box {
+        background-color: #1e1e1e; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+}
+/* إذا كنت تستخدم class مخصص للوضع الليلي في موقعك مثل [data-theme="dark"] يمكنك تفعيله هنا أيضاً */
+[data-theme="dark"] .modal-content-box {
+    background-color: var(--bg-card, #1e1e1e);
+}
+
+/* زر الإغلاق */
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    color: #ff4757;
+}
+
+/* تنسيق مشغل الفيديو */
+#modalVideoPlayer {
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    background-color: #000;
+    outline: none;
 }

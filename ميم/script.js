@@ -337,7 +337,58 @@ function copyBoxData(btnRef, textId) {
         alert(pageLang === 'ar' ? 'حدث خطأ أثناء النسخ، الرجاء المحاولة مرة أخرى.' : 'Error copying text, please try again.');
     });
 }
-
 document.addEventListener('DOMContentLoaded', () => {
-    uiManager.start();
+    // تشغيل كودك القديم (الخاص بالبحث والقائمة)
+    if(typeof uiManager !== 'undefined') {
+        uiManager.start();
+    }
+
+    const videoModal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('modalVideoPlayer');
+    const closeModalBtn = document.querySelector('.close-modal-btn');
+
+    if (!videoModal || !videoPlayer) return;
+
+    // استماع للضغطات على الأزرار
+    document.body.addEventListener('click', function(e) {
+        const btn = e.target.closest('.open-video-modal');
+        
+        if (btn) {
+            e.preventDefault();
+            
+            const videoSrc = btn.getAttribute('data-video'); 
+            
+            // 1. ترميز الرابط
+            videoPlayer.src = encodeURI(videoSrc);
+            
+            // 2. إجبار المتصفح على تحميل الفيديو الجديد (هذا السطر يحل أغلب المشاكل)
+            videoPlayer.load(); 
+            
+            // 3. إظهار النافذة
+            videoModal.classList.add('show-modal');
+            
+            // 4. تشغيل الفيديو مع تأخير بسيط جداً لضمان جاهزية المشغل
+            setTimeout(() => {
+                videoPlayer.play().catch(error => {
+                    console.log("تعذر التشغيل:", error);
+                    alert("المتصفح يمنع التشغيل التلقائي أو المسار غير صحيح.");
+                });
+            }, 100);
+        }
+    });
+
+    // دالة الإغلاق
+    function closeModal() {
+        videoModal.classList.remove('show-modal');
+        videoPlayer.pause(); 
+        videoPlayer.src = ''; 
+    }
+
+    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
+    videoModal.addEventListener('click', function(e) {
+        if (e.target === videoModal) {
+            closeModal();
+        }
+    });
 });
