@@ -37,19 +37,175 @@ const siteStrings = {
         templates_page_title: "النماذج الجاهزة 📝",
         templates_page_desc: "انسخ النماذج بضغطة زر.",
         search_page_title: "نتائج البحث 🔍",
+        search_status_initial: "يتم عرض النتائج...",
         copy_text: "نسخ النص",
         reminders_title: "إرسال التذكيرات",
+        reminders_l1: "رسالة الإعلان: قبل المحاضرة بـ 24 ساعة.",
+        reminders_l2: "ملصق التذكير الأول: صباح يوم المحاضرة.",
+        reminders_l3: "ملصق التذكير الثاني: قبل المحاضرة بـ ساعة واحدة.",
+        reminders_l4: "ملصق التذكير الثالث: قبل المحاضرة بـ نصف ساعة.",
+        reminders_l5: "ملصق التذكير الرابع: عند بدء وقت المحاضرة.",
+        reminders_note: "تأكد من إرسال التذكير على مجموعة الواتساب الرسمية للطلاب والبوابة الإلكتروني الخاصة بالجامعة.",
         zoom_link_title: "رابط Zoom",
+        zoom_desc1: "هل يجب إنشاء رابط Zoom جديد؟",
+        zoom_desc2: "لا، استخدم الرابط الثابت المخصص للمادة والذي تم تزويدك به من قبل الإدارة.",
+        zoom_alert: "ممنوع مشاركة الرابط مع أي شخص خارج الدفعة.",
         talk_title: "التحدث وعرض المادة",
+        talk_desc1: "هل يطلب من المساعد التحدث؟",
+        talk_desc2: "دورك الأساسي هو الإدارة التقنية، التحدث يكون فقط للترحيب بالدكتور أو تنبيه الطلاب لأمر تقني.",
+        talk_note: "المادة العلمية (Presentation) يعرضها الدكتور من جهازه، إلا إذا طلب منك الدكتور مسبقاً عرضها نيابة عنه.",
         prep_title: "التجهيز الشخصي",
+        prep_l1: "التواجد في القاعة قبل خمس دقائق من الوقت الرسمي.",
+        prep_l2: "التأكد من استقرار شبكة الإنترنت لديك.",
         host_auth_title: "استلام ومنح الصلاحيات",
+        host_l1: "تأكد أنك تمتلك صلاحية <strong>Host</strong> بمجرد دخولك القاعة.",
+        host_l2: "عند دخول الدكتور، قم بالبحث عن اسمه فوراً وامنحه صلاحية <strong>Co-Host</strong>.",
         mic_cam_title: "إغلاق الكاميرات والمايك",
+        mic_l1: "اضغط على <strong>Host tools</strong> وتأكد من إزالة علامة الصح عن خيار <strong>\"Unmute + Start video\"</strong>.",
+        mic_l2: "أغلق كاميرا أي طالب يفتحها بالخطأ فوراً من قائمة المشاركين.",
         record_title: "التحكم بالتسجيل",
+        record_l1: "تنبيه: رابط المحاضرة مُفعّل تلقائيًا لبدء التسجيل مع بداية وقت المحاضرة، لذا يُرجى عدم إيقاف التسجيل أو إيقافه يدويًا أثناء المحاضرة.",
+        record_alert: "تأكد دائماً من ظهور أيقونة التسجيل الحمراء أعلى الشاشة.",
         end_5min_title: "قبل نهاية المحاضرة بـ 5 دقائق",
+        end_desc: "تأكد من أن صلاحية الهوست لا تزال معك.",
+        end_note: "اكتب في الشات: \"تذكير: تبقى 5 دقائق على نهاية الوقت، وأن الغرفة ستغلق تلقائيًا عند الدقيقة (59) من قبل وحدة الغرف الصوتية\".",
         excel_title: "استخراج ملف الحضور (Excel)",
+        excel_note_title: "<strong>ملاحظات:</strong>",
+        excel_note_1: "·توجد قناة في تيليجرام تُرفع فيها ملفات الحضور بصيغة Excel",
+        excel_desc: "يتم الاعتماد على ملف الحضور في تعبئة التقرير",
+        excel_btn: "الإنضمام لقناة التيلقرام",
         reports_title: "رفع التقارير",
+        reports_desc: "قم بتعبئة نموذج التقرير الخاص بالمقرر، وارفق ملف الغياب والحضور.",
+        reports_alert: "يجب رفع التقرير خلال 24 ساعة كحد أقصى من انتهاء المحاضرة للأمين.",
         upload_records_title: "رفع التسجيلات",
+        upload_desc1: "في وصف مجموعة المقرر ستجد روابط التسجيلات المرئية والصوتية الخاصة بالقسم.",
+        upload_desc2: "انسخ رابط التسجيل المطلوب، ثم أرفقه في نموذج التسجيلات، وأرفقه في مجموعة المقرر .",
+        upload_alert1: "يظهر كود المقرر في بداية عنوان التسجيل، والرقم الموجود في البداية يمثل رقم المحاضرة.",
+        upload_alert2: "في حال عدم العثور على رابط التسجيل، أبلغ أمين القسم ليتم رفع طلب التسجيل ضمن قائمة النواقص.",
         excuses_title: "إدارة الأعذار",
+        excuses_desc: "أي طالب يقدم عذراً أثناء المحاضرة (مشكلة تقنية، انقطاع كهرباء)، قم بتسجيله في قسم \"الملاحظات\" داخل التقرير ليتم مراجعته.",
+        faq_q1: "هل يمكنني مغادرة الاجتماع قبل الدكتور؟",
+        faq_a1: "يُمنع تماماً مغادرة الاجتماع قبل خروج الدكتور وإغلاق القاعة للجميع (End Meeting for All). المساعد هو أول من يدخل وآخر من يخرج.",
+        faq_q2: "ماذا أفعل إذا انقطع الإنترنت لدي وأنا Host؟",
+        faq_a2: "نظام Zoom سيقوم بنقل صلاحية الـ Host تلقائياً للدكتور (لأنه Co-Host). حاول العودة سريعاً للقاعة واطلب من الغرف الصوتية إرجاع الصلاحية لك عبر المجموعة المخصصة للمشكلات.",
+        faq_q3: "كيف أتعامل مع طالب يكتب تعليقات غير لائقة؟",
+        faq_a3: "قم بإزالة الطالب من القاعة فوراً (Remove) من قائمة المشاركين، والتقط صورة شاشة (Screenshot) للمحادثة، وارفقها في التقرير مع اسم الطالب للإدارة.",
+        scen_t1: "طالب فتح الكاميرا بالخطأ",
+        scen_d1: "اذهب لقائمة Participants، ابحث عن رمز الكاميرا المفعلة واضغط \"Stop Video\".",
+        scen_t2: "الدكتور لم يدخل الاجتماع",
+        scen_d2: "انتظر 10 دقائق، أرسل رسالة تذكير لطيفة للدكتور على الواتساب. إذا لم يرد بعد 20 دقيقة، بلغ الإدارة واطلب من الطلاب الانتظار.",
+        scen_t3: "مشكلة في مشاركة العرض",
+        scen_d3: "تأكد أنك منحت الدكتور صلاحية Co-Host أو تأكد من إعدادات المشاركة: Security > Allow Participants to Share Screen.",
+        scen_t4: "مشكلة في المايك (صدى صوت)",
+        scen_d4: "يحدث ذلك غالباً لوجود أكثر من جهاز مفتوح في نفس المكان، اطلب من الجميع الميوت (Mute All) باستثناء الدكتور.",
+        scen_t5: "لم يظهر ملف Excel لتقرير الحضور",
+        scen_d5: "بلغ أمين القسم، ثم يقوم برفع طلب الملف ضمن النواقص في المجموعة المخصصة لذلك من قِبل وحدة الغرف الصوتية.",
+        z_host_desc: "لاستلام صلاحية <strong>الهوست</strong> أدخل الرمز الموحد: <strong>147369</strong>.",
+        z_host_note: "الفرق بين Host وCo-Host:<br><ul><strong>Host:</strong> يمتلك كامل صلاحيات إدارة الاجتماع، مثل التحكم بالمايكات والكاميرات، إدارة الشات، التسجيل، وإنهاء الاجتماع.</ul><br><ul><strong>Co-Host:</strong> يساعد في إدارة الاجتماع، ويملك معظم صلاحيات الهوست، لكنه لا يستطيع تغيير إعدادات الاجتماع الأساسية أو إنهاءه بالكامل.</ul>",
+        z_mute_desc: "لفتح وإغلاق المايكروفون الخاص بك. استخدم السهم بجانبه لتغيير إعدادات السماعات والمايك.",
+        z_part_desc: "لفتح قائمة المشاركين. من هنا يمكنك استخدام أزرار <strong>Mute All</strong> والبحث عن أسماء الطلاب والدكتور.",
+        z_share_desc: "لبدء مشاركة الشاشة <br> <strong>Screen sharing</strong> لمشاركة الشاشة بالكامل",
+        z_end_desc: "الزر الأحمر الزاوية لإنهاء القاعة. اختر دائماً <strong>End Meeting for All</strong> لإخراج الجميع وإغلاق القاعة رسمياً.",
+        vid_acc1: "شروحات أجهزة Apple",
+        vid_c1_t1: "طريقة أخذ الـHost وإغلاق المايك والكاميرا للطلاب",
+        vid_c1_d1: "شرح خطوة بخطوة لكيفية الانضمام في الآيفون.",
+        vid_btn: "شاهد الفيديو",
+        vid_c1_d2: "شرح خطوة بخطوة لكيفية الانضمام في الآيباد.",
+        vid_acc2: "شروحات أجهزة Android",
+        vid_c2_t1: "طريقة أخذ الـHost وإغلاق المايك والكاميرا للطلاب",
+        vid_c2_d1: "شرح خطوة بخطوة لكيفية الانضمام في الجوال.",
+        vid_c2_d2: "شرح خطوة بخطوة لكيفية الانضمام في التابلت.",
+        vid_acc3: "شروحات اللابتوب (Windows)",
+        vid_c3_t1: "طريقة أخذ الـHost وإغلاق المايك والكاميرا للطلاب",
+        vid_c3_d1: "شرح خطوة بخطوة لكيفية الانضمام من جهاز الكمبيوتر.",
+        vid_acc4: "شروح لطريقة التحضير بإستخدام الذكاء الاصطناعي",
+        vid_c4_d1: "<strong>ملف الكود المستخدم في الشرح</strong>",
+        vid_btn_down: "تنزيل الملف",
+        vid_c4_d2: "<strong>شرح توضيحي خطوة بخطوة لكيفية التحضير</strong>",
+        tpl_t1: "إعلان المحاضرة",
+        tpl_b1: `*            *\`📢 إعـــــــــلان\` 📢*
+
+*🔸 محاضرات يوم:*
+
+*🔹 القسم* : 
+*🔸 المرحلة* : 
+*🔹 المادة* : 
+*🔸 \`كود المادة:\`*
+*🔸الدكتور* : 
+*🔹الوقت* : 
+*🔸 القاعة* : 
+*🔹 مدة المحاضرة* :  
+
+*الرابط* 🔗
+
+
+🔒 : Meeting ID : 
+Passcode :`,
+        tpl_t2: "تقرير المحاضرة المعتاد",
+        tpl_b2: `*📄تقرير محاضرة :* 
+*♦️المرحلة:*
+*♦️القسم:*
+*♦️أمين القسم :*
+*♦️اسم المادة :*
+*♦️كود المادة :*
+*♦️مساعد المادة :*
+___________
+*▫️اليوم:* 
+*▫️التاريخ :*
+*▫️ الدكتور :*
+ *رقم المحاضرة:*
+*▫️موعد المحاضرة:*
+*▪️القاعة:*
+___________
+▪️ *حالة المحاضره (هل تمت أو لا):*
+▫️ *حضر الدكتور في(وقته، تأخر):* 
+▪️ *النت (ضعيف،ممتاز،جيد):* 
+▫️ *عرض المادة (تم،لا):*
+
+*ملاحظات:*
+
+ ___________
+*ملاحظات الغياب:*
+ *▫️ العدد الكلي :*
+*▪️عدد الحضور :*
+ *▪️عدد الغياب  :* 
+⏲️ *تصنيف الغياب*⏲
+1️⃣ *الغياب بدون عذر* : 
+
+
+2️⃣ *الغائب بعذر* : 
+
+
+3️⃣ *الحاضرين أقل من الوقت* : 
+
+
+*والله ولي التوفيق*`,
+        tpl_t3: "تقرير الغياب",
+        tpl_b3: `*📄 تقرير غياب :* 
+
+*🔹القسم :*
+*🔹أمينة القسم:* 
+*🔹نائبة الأمينة القسم:*
+*🔹المادة:* 
+*🔹مساعد المادة:* 
+➖➖➖➖➖➖➖➖
+*▫️اليوم :* 
+*▫️التاريخ:* 
+*▫️رقم المحاضرة :* 
+➖➖➖➖➖➖➖➖
+*♦️اسماء الغائبين بغير عذر :*
+
+*♦️ الحاضرين أقل من الوقت المحسوب :* 
+
+➖➖➖➖➖➖➖➖➖➖➖➖
+*❗ لكل غياب خصم [ 2 ]  درجات*
+*❗الغياب 3 محاضرات يُدرج  في قائمة الإنذار*
+*❗الغياب 4 محاضرات يؤدي إلى الحرمان*
+\`⚠️ نؤكد على الالتزام التام بالحضور وتحمّل المسؤولية الأكاديمية\`
+📩 في حال وجود عذر:
+يُقدم إلى أمينة القسم
+@`,
+        video_not_supported: "متصفحك لا يدعم تشغيل الفيديوهات."
     },
     en: {
         portal_title: "Assistants Portal",
@@ -89,19 +245,175 @@ const siteStrings = {
         templates_page_title: "Ready Templates 📝",
         templates_page_desc: "Copy templates with a click of a button.",
         search_page_title: "Search Results 🔍",
+        search_status_initial: "Loading results...",
         copy_text: "Copy Text",
         reminders_title: "Send Reminders",
+        reminders_l1: "Announcement Message: 24 hours before the lecture.",
+        reminders_l2: "First Reminder: Morning of the lecture day.",
+        reminders_l3: "Second Reminder: One hour before the lecture.",
+        reminders_l4: "Third Reminder: Half an hour before the lecture.",
+        reminders_l5: "Fourth Reminder: At the start of the lecture.",
+        reminders_note: "Ensure reminders are sent to the official student WhatsApp group and the university portal.",
         zoom_link_title: "Zoom Link",
+        zoom_desc1: "Do I need to create a new Zoom link?",
+        zoom_desc2: "No, use the static link assigned to the course provided by the administration.",
+        zoom_alert: "It is strictly forbidden to share the link with anyone outside the batch.",
         talk_title: "Speaking & Presentation",
+        talk_desc1: "Is the assistant required to speak?",
+        talk_desc2: "Your primary role is technical management. Speaking is only for welcoming the doctor or alerting students about a technical issue.",
+        talk_note: "The doctor displays the presentation from their device, unless they requested you to display it on their behalf.",
         prep_title: "Personal Preparation",
+        prep_l1: "Be present in the room five minutes before the official time.",
+        prep_l2: "Ensure the stability of your internet connection.",
         host_auth_title: "Claiming & Granting Permissions",
+        host_l1: "Ensure you have <strong>Host</strong> privileges as soon as you enter the room.",
+        host_l2: "Upon the doctor's entry, search for their name immediately and grant them <strong>Co-Host</strong> privileges.",
         mic_cam_title: "Muting Mics & Cameras",
+        mic_l1: "Click on <strong>Host tools</strong> and ensure the <strong>\"Unmute + Start video\"</strong> option is unchecked.",
+        mic_l2: "Immediately turn off the camera of any student who opens it by mistake from the participants list.",
         record_title: "Recording Control",
+        record_l1: "Alert: The lecture link is set to start recording automatically. Please do not pause or stop the recording manually.",
+        record_alert: "Always ensure the red recording icon appears at the top of the screen.",
         end_5min_title: "5 Minutes Before End",
+        end_desc: "Ensure that you still hold Host privileges.",
+        end_note: "Write in the chat: \"Reminder: 5 minutes left. The room will close automatically at minute (59) by the Voice Rooms Unit.\"",
         excel_title: "Extract Attendance (Excel)",
+        excel_note_title: "<strong>Notes:</strong>",
+        excel_note_1: "· There is a Telegram channel where attendance files are uploaded in Excel format.",
+        excel_desc: "The attendance file is relied upon to fill out the report.",
+        excel_btn: "Join Telegram Channel",
         reports_title: "Submit Reports",
+        reports_desc: "Fill out the course report form and attach the attendance and absence file.",
+        reports_alert: "The report must be submitted to the secretary within a maximum of 24 hours after the lecture ends.",
         upload_records_title: "Upload Recordings",
+        upload_desc1: "In the course group description, you will find the video and audio recording links for the department.",
+        upload_desc2: "Copy the required recording link, attach it to the recordings form, and share it in the course group.",
+        upload_alert1: "The course code appears at the beginning of the recording title, and the initial number represents the lecture number.",
+        upload_alert2: "If the recording link is not found, inform the department secretary to raise a recording request in the missing items list.",
         excuses_title: "Manage Excuses",
+        excuses_desc: "Any student who presents an excuse during the lecture (technical issue, power outage), log it in the \"Notes\" section of the report for review.",
+        faq_q1: "Can I leave the meeting before the doctor?",
+        faq_a1: "It is strictly forbidden to leave before the doctor and before closing the room for everyone (End Meeting for All). The assistant is the first to enter and the last to leave.",
+        faq_q2: "What if my internet disconnects while I am Host?",
+        faq_a2: "Zoom will automatically transfer the Host privilege to the doctor (since they are Co-Host). Rejoin quickly and ask the Voice Rooms unit to return the privilege to you via the issues group.",
+        faq_q3: "How to handle a student writing inappropriate comments?",
+        faq_a3: "Remove the student from the room immediately from the participants list, take a screenshot of the chat, and attach it to the report with the student's name for management.",
+        scen_t1: "Student opened camera by mistake",
+        scen_d1: "Go to the Participants list, find the active camera icon, and click \"Stop Video\".",
+        scen_t2: "Doctor hasn't joined the meeting",
+        scen_d2: "Wait 10 mins, send a gentle reminder to the doctor on WhatsApp. If no reply after 20 mins, inform admin and ask students to wait.",
+        scen_t3: "Issue sharing presentation",
+        scen_d3: "Ensure you granted Co-Host to the doctor, or check sharing settings: Security > Allow Participants to Share Screen.",
+        scen_t4: "Mic issue (echo)",
+        scen_d4: "Usually happens due to multiple devices in the same place. Ask everyone to Mute All except the doctor.",
+        scen_t5: "Excel attendance file didn't appear",
+        scen_d5: "Inform the department secretary to request the file in the designated missing items group by the Voice Rooms unit.",
+        z_host_desc: "To claim <strong>Host</strong> privileges, enter the unified code: <strong>147369</strong>.",
+        z_host_note: "Difference between Host and Co-Host:<br><ul><strong>Host:</strong> Has full meeting management privileges, like controlling mics/cams, chat, recording, and ending the meeting.</ul><br><ul><strong>Co-Host:</strong> Assists in managing the meeting with most Host privileges, but cannot change basic settings or end it for all.</ul>",
+        z_mute_desc: "To mute/unmute your microphone. Use the arrow next to it to change speaker and mic settings.",
+        z_part_desc: "To open the participants list. From here you can use <strong>Mute All</strong> and search for student and doctor names.",
+        z_share_desc: "To start sharing the screen <br> <strong>Screen sharing</strong> to share the entire screen.",
+        z_end_desc: "The red corner button to end the room. Always choose <strong>End Meeting for All</strong> to formally kick everyone and close the room.",
+        vid_acc1: "Apple Devices Tutorials",
+        vid_c1_t1: "How to claim Host, mute mics, and close cameras",
+        vid_c1_d1: "Step-by-step guide for joining via iPhone.",
+        vid_btn: "Watch Video",
+        vid_c1_d2: "Step-by-step guide for joining via iPad.",
+        vid_acc2: "Android Devices Tutorials",
+        vid_c2_t1: "How to claim Host, mute mics, and close cameras",
+        vid_c2_d1: "Step-by-step guide for joining via Mobile.",
+        vid_c2_d2: "Step-by-step guide for joining via Tablet.",
+        vid_acc3: "Laptop Tutorials (Windows)",
+        vid_c3_t1: "How to claim Host, mute mics, and close cameras",
+        vid_c3_d1: "Step-by-step guide for joining via PC.",
+        vid_acc4: "AI Attendance Tutorials",
+        vid_c4_d1: "<strong>Code file used in the tutorial</strong>",
+        vid_btn_down: "Download File",
+        vid_c4_d2: "<strong>Step-by-step visual guide on taking attendance</strong>",
+        tpl_t1: "Lecture Announcement",
+        tpl_b1: `*            *\`📢 Announcement\` 📢*
+
+*🔸 Lectures for day:*
+
+*🔹 Department* : 
+*🔸 Level* : 
+*🔹 Subject* : 
+*🔸 \`Course Code:\`*
+*🔸 Doctor* : 
+*🔹 Time* : 
+*🔸 Room* : 
+*🔹 Duration* :  
+
+*Link* 🔗
+
+
+🔒 : Meeting ID : 
+Passcode :`,
+        tpl_t2: "Standard Lecture Report",
+        tpl_b2: `*📄 Lecture Report :* 
+*♦️ Level:*
+*♦️ Department:*
+*♦️ Dept. Secretary:*
+*♦️ Subject Name:*
+*♦️ Course Code:*
+*♦️ Assistant:*
+___________
+*▫️ Day:* 
+*▫️ Date:*
+*▫️ Doctor:*
+ *Lecture No:*
+*▫️ Time:*
+*▪️ Room:*
+___________
+▪️ *Lecture Status (Held/Not):*
+▫️ *Doctor attended (On time/Late):* 
+▪️ *Internet (Poor/Good/Excellent):* 
+▫️ *Presentation (Yes/No):*
+
+*Notes:*
+
+ ___________
+*Absence Notes:*
+ *▫️ Total Count:*
+*▪️ Present Count:*
+ *▪️ Absent Count:* 
+⏲️ *Absence Classification* ⏲
+1️⃣ *Absent without excuse*: 
+
+
+2️⃣ *Absent with excuse*: 
+
+
+3️⃣ *Present less than time*: 
+
+
+*Best of luck*`,
+        tpl_t3: "Absence Report",
+        tpl_b3: `*📄 Absence Report :* 
+
+*🔹 Department:*
+*🔹 Dept. Secretary:* 
+*🔹 Deputy Secretary:*
+*🔹 Subject:* 
+*🔹 Assistant:* 
+➖➖➖➖➖➖➖➖
+*▫️ Day:* 
+*▫️ Date:* 
+*▫️ Lecture No:* 
+➖➖➖➖➖➖➖➖
+*♦️ Absent without excuse:*
+
+*♦️ Present less than required time:* 
+
+➖➖➖➖➖➖➖➖➖➖➖➖
+*❗ 2 points deducted per absence*
+*❗ 3 absences = Warning list*
+*❗ 4 absences = Deprivation*
+\`⚠️ Strict adherence to attendance is required\`
+📩 For excuses:
+Submit to the department secretary
+@`,
+        video_not_supported: "Your browser does not support the video tag."
     }
 };
 
@@ -364,8 +676,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 videoPlayer.play().catch(error => {
+                    const pageLang = document.documentElement.getAttribute('lang') || 'ar';
                     console.log("تعذر التشغيل:", error);
-                    alert("المتصفح يمنع التشغيل التلقائي أو المسار غير صحيح.");
+                    alert(pageLang === 'ar' ? "المتصفح يمنع التشغيل التلقائي أو المسار غير صحيح." : "Browser blocked autoplay or the file path is incorrect.");
                 });
             }, 100);
         }
