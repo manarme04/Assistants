@@ -338,7 +338,6 @@ function copyBoxData(btnRef, textId) {
     });
 }
 document.addEventListener('DOMContentLoaded', () => {
-    // تشغيل كودك القديم (الخاص بالبحث والقائمة)
     if(typeof uiManager !== 'undefined') {
         uiManager.start();
     }
@@ -349,7 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!videoModal || !videoPlayer) return;
 
-    // استماع للضغطات على الأزرار
     document.body.addEventListener('click', function(e) {
         const btn = e.target.closest('.open-video-modal');
         
@@ -358,16 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const videoSrc = btn.getAttribute('data-video'); 
             
-            // 1. ترميز الرابط
             videoPlayer.src = encodeURI(videoSrc);
             
-            // 2. إجبار المتصفح على تحميل الفيديو الجديد (هذا السطر يحل أغلب المشاكل)
             videoPlayer.load(); 
             
-            // 3. إظهار النافذة
             videoModal.classList.add('show-modal');
             
-            // 4. تشغيل الفيديو مع تأخير بسيط جداً لضمان جاهزية المشغل
             setTimeout(() => {
                 videoPlayer.play().catch(error => {
                     console.log("تعذر التشغيل:", error);
