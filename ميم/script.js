@@ -177,21 +177,21 @@ ___________
 *والله ولي التوفيق*`,
         tpl_t3: "تقرير الغياب",
         tpl_b3: `*📄 تقرير غياب :* 
-        *🔹القسم :*
+*🔹القسم :*
 *🔹أمينة القسم:* 
 *🔹نائبة الأمينة القسم:*
 *🔹المادة:* 
 *🔹مساعد المادة:*
- ➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖
 *▫️اليوم :* 
 *▫️التاريخ:* 
 *▫️رقم المحاضرة :*
- ➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖
 *♦️اسماء الغائبين بغير عذر :*
 
 *♦️ الحاضرين أقل من الوقت المحسوب :*
 
- ➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖
 *❗ لكل غياب خصم [ 2 ]  درجات*
 *❗الغياب 3 محاضرات يُدرج  في قائمة الإنذار*
 *❗الغياب 4 محاضرات يؤدي إلى الحرمان*
@@ -344,21 +344,25 @@ ___________
 🔒 : Meeting ID : 
 Passcode :`,
         tpl_t2: "Standard Lecture Report",
-        tpl_b2: `*📄 Lecture Report :* *♦️ Level:*
+        tpl_b2: `*📄 Lecture Report :*
+*♦️ Level:*
 *♦️ Department:*
 *♦️ Dept. Secretary:*
 *♦️ Subject Name:*
 *♦️ Course Code:*
 *♦️ Assistant:*
 ___________
-*▫️ Day:* *▫️ Date:*
+*▫️ Day:*
+*▫️ Date:*
 *▫️ Doctor:*
- *Lecture No:*
+*▫️ Lecture No:*
 *▫️ Time:*
 *▪️ Room:*
 ___________
 ▪️ *Lecture Status (Held/Not):*
-▫️ *Doctor attended (On time/Late):* ▪️ *Internet (Poor/Good/Excellent):* ▫️ *Presentation (Yes/No):*
+▫️ *Doctor attended (On time/Late):* 
+▪️ *Internet (Poor/Good/Excellent):*
+▫️ *Presentation (Yes/No):*
 
 *Notes:*
 
@@ -379,7 +383,7 @@ ___________
 *Best of luck*`,
         tpl_t3: "Absence Report",
         tpl_b3: `*📄 Absence Report :*
-         *🔹 Department:*
+*🔹 Department:*
 *🔹 Dept. Secretary:* 
 *🔹 Deputy Secretary:*
 *🔹 Subject:* 
@@ -393,7 +397,7 @@ ___________
 
 *♦️ Present less than required time:*
 
- ➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖
 *❗ 2 points deducted per absence*
 *❗ 3 absences = Warning list*
 *❗ 4 absences = Deprivation*
