@@ -118,12 +118,12 @@ const siteStrings = {
         vid_acc3: "شروحات اللابتوب (Windows)",
         vid_c3_t1: "طريقة أخذ الـHost وإغلاق المايك والكاميرا للطلاب",
         vid_c3_d1: "شرح خطوة بخطوة لكيفية الانضمام من جهاز الكمبيوتر.",
-        vid_acc4: "شروح لطريقة التحضير بإستخدام الذكاء الاصطناعي",
+        vid_acc4: "شرح لطريقة التحضير بإستخدام الذكاء الاصطناعي",
         vid_c4_d1: "<strong>ملف الكود المستخدم في الشرح</strong>",
         vid_btn_down: "تنزيل الملف",
         vid_c4_d2: "<strong>شرح توضيحي خطوة بخطوة لكيفية التحضير</strong>",
         tpl_t1: "إعلان المحاضرة",
-        tpl_b1: `*            *\`📢 إعـــــــــلان\` 📢*
+        tpl_b1: `* *\`📢 إعـــــــــلان\` 📢*
 
 *🔸 محاضرات يوم:*
 
@@ -142,25 +142,21 @@ const siteStrings = {
 🔒 : Meeting ID : 
 Passcode :`,
         tpl_t2: "تقرير المحاضرة المعتاد",
-        tpl_b2: `*📄تقرير محاضرة :* 
-*♦️المرحلة:*
+        tpl_b2: `*📄تقرير محاضرة :* *♦️المرحلة:*
 *♦️القسم:*
 *♦️أمين القسم :*
 *♦️اسم المادة :*
 *♦️كود المادة :*
 *♦️مساعد المادة :*
 ___________
-*▫️اليوم:* 
-*▫️التاريخ :*
+*▫️اليوم:* *▫️التاريخ :*
 *▫️ الدكتور :*
  *رقم المحاضرة:*
 *▫️موعد المحاضرة:*
 *▪️القاعة:*
 ___________
 ▪️ *حالة المحاضره (هل تمت أو لا):*
-▫️ *حضر الدكتور في(وقته، تأخر):* 
-▪️ *النت (ضعيف،ممتاز،جيد):* 
-▫️ *عرض المادة (تم،لا):*
+▫️ *حضر الدكتور في(وقته، تأخر):* ▪️ *النت (ضعيف،ممتاز،جيد):* ▫️ *عرض المادة (تم،لا):*
 
 *ملاحظات:*
 
@@ -168,8 +164,7 @@ ___________
 *ملاحظات الغياب:*
  *▫️ العدد الكلي :*
 *▪️عدد الحضور :*
- *▪️عدد الغياب  :* 
-⏲️ *تصنيف الغياب*⏲
+ *▪️عدد الغياب  :* ⏲️ *تصنيف الغياب*⏲
 1️⃣ *الغياب بدون عذر* : 
 
 
@@ -181,23 +176,13 @@ ___________
 
 *والله ولي التوفيق*`,
         tpl_t3: "تقرير الغياب",
-        tpl_b3: `*📄 تقرير غياب :* 
-
-*🔹القسم :*
-*🔹أمينة القسم:* 
-*🔹نائبة الأمينة القسم:*
-*🔹المادة:* 
-*🔹مساعد المادة:* 
-➖➖➖➖➖➖➖➖
-*▫️اليوم :* 
-*▫️التاريخ:* 
-*▫️رقم المحاضرة :* 
-➖➖➖➖➖➖➖➖
+        tpl_b3: `*📄 تقرير غياب :* *🔹القسم :*
+*🔹أمينة القسم:* *🔹نائبة الأمينة القسم:*
+*🔹المادة:* *🔹مساعد المادة:* ➖➖➖➖➖➖➖➖
+*▫️اليوم :* *▫️التاريخ:* *▫️رقم المحاضرة :* ➖➖➖➖➖➖➖➖
 *♦️اسماء الغائبين بغير عذر :*
 
-*♦️ الحاضرين أقل من الوقت المحسوب :* 
-
-➖➖➖➖➖➖➖➖➖➖➖➖
+*♦️ الحاضرين أقل من الوقت المحسوب :* ➖➖➖➖➖➖➖➖➖➖➖➖
 *❗ لكل غياب خصم [ 2 ]  درجات*
 *❗الغياب 3 محاضرات يُدرج  في قائمة الإنذار*
 *❗الغياب 4 محاضرات يؤدي إلى الحرمان*
@@ -331,7 +316,7 @@ ___________
         vid_btn_down: "Download File",
         vid_c4_d2: "<strong>Step-by-step visual guide on taking attendance</strong>",
         tpl_t1: "Lecture Announcement",
-        tpl_b1: `*            *\`📢 Announcement\` 📢*
+        tpl_b1: `* *\`📢 Announcement\` 📢*
 
 *🔸 Lectures for day:*
 
@@ -350,25 +335,21 @@ ___________
 🔒 : Meeting ID : 
 Passcode :`,
         tpl_t2: "Standard Lecture Report",
-        tpl_b2: `*📄 Lecture Report :* 
-*♦️ Level:*
+        tpl_b2: `*📄 Lecture Report :* *♦️ Level:*
 *♦️ Department:*
 *♦️ Dept. Secretary:*
 *♦️ Subject Name:*
 *♦️ Course Code:*
 *♦️ Assistant:*
 ___________
-*▫️ Day:* 
-*▫️ Date:*
+*▫️ Day:* *▫️ Date:*
 *▫️ Doctor:*
  *Lecture No:*
 *▫️ Time:*
 *▪️ Room:*
 ___________
 ▪️ *Lecture Status (Held/Not):*
-▫️ *Doctor attended (On time/Late):* 
-▪️ *Internet (Poor/Good/Excellent):* 
-▫️ *Presentation (Yes/No):*
+▫️ *Doctor attended (On time/Late):* ▪️ *Internet (Poor/Good/Excellent):* ▫️ *Presentation (Yes/No):*
 
 *Notes:*
 
@@ -376,8 +357,7 @@ ___________
 *Absence Notes:*
  *▫️ Total Count:*
 *▪️ Present Count:*
- *▪️ Absent Count:* 
-⏲️ *Absence Classification* ⏲
+ *▪️ Absent Count:* ⏲️ *Absence Classification* ⏲
 1️⃣ *Absent without excuse*: 
 
 
@@ -389,23 +369,13 @@ ___________
 
 *Best of luck*`,
         tpl_t3: "Absence Report",
-        tpl_b3: `*📄 Absence Report :* 
-
-*🔹 Department:*
-*🔹 Dept. Secretary:* 
-*🔹 Deputy Secretary:*
-*🔹 Subject:* 
-*🔹 Assistant:* 
-➖➖➖➖➖➖➖➖
-*▫️ Day:* 
-*▫️ Date:* 
-*▫️ Lecture No:* 
-➖➖➖➖➖➖➖➖
+        tpl_b3: `*📄 Absence Report :* *🔹 Department:*
+*🔹 Dept. Secretary:* *🔹 Deputy Secretary:*
+*🔹 Subject:* *🔹 Assistant:* ➖➖➖➖➖➖➖➖
+*▫️ Day:* *▫️ Date:* *▫️ Lecture No:* ➖➖➖➖➖➖➖➖
 *♦️ Absent without excuse:*
 
-*♦️ Present less than required time:* 
-
-➖➖➖➖➖➖➖➖➖➖➖➖
+*♦️ Present less than required time:* ➖➖➖➖➖➖➖➖➖➖➖➖
 *❗ 2 points deducted per absence*
 *❗ 3 absences = Warning list*
 *❗ 4 absences = Deprivation*
@@ -635,13 +605,13 @@ function copyBoxData(btnRef, textId) {
         const oldHtml = btnRef.innerHTML;
         const pageLang = document.documentElement.getAttribute('lang') || 'ar';
         
-        btnRef.innerHTML = pageLang === 'ar' ? '✅ تم النسخ بنجاح!' : '✅ Copied Successfully!';
-        btnRef.style.backgroundColor = '#10b981';
+        btnRef.innerHTML = pageLang === 'ar' ? '✅ تم النسخ!' : '✅ Copied!';
+        btnRef.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
         btnRef.style.color = '#ffffff';
         
         setTimeout(() => {
             btnRef.innerHTML = oldHtml;
-            btnRef.style.backgroundColor = ''; 
+            btnRef.style.background = ''; 
             btnRef.style.color = '';
         }, 2000);
     }).catch(err => {
@@ -649,6 +619,7 @@ function copyBoxData(btnRef, textId) {
         alert(pageLang === 'ar' ? 'حدث خطأ أثناء النسخ، الرجاء المحاولة مرة أخرى.' : 'Error copying text, please try again.');
     });
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     if(typeof uiManager !== 'undefined') {
         uiManager.start();
@@ -684,7 +655,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // دالة الإغلاق
     function closeModal() {
         videoModal.classList.remove('show-modal');
         videoPlayer.pause(); 
