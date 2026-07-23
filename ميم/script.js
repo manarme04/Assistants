@@ -176,13 +176,22 @@ ___________
 
 *والله ولي التوفيق*`,
         tpl_t3: "تقرير الغياب",
-        tpl_b3: `*📄 تقرير غياب :* *🔹القسم :*
-*🔹أمينة القسم:* *🔹نائبة الأمينة القسم:*
-*🔹المادة:* *🔹مساعد المادة:* ➖➖➖➖➖➖➖➖
-*▫️اليوم :* *▫️التاريخ:* *▫️رقم المحاضرة :* ➖➖➖➖➖➖➖➖
+        tpl_b3: `*📄 تقرير غياب :* 
+        *🔹القسم :*
+*🔹أمينة القسم:* 
+*🔹نائبة الأمينة القسم:*
+*🔹المادة:* 
+*🔹مساعد المادة:*
+ ➖➖➖➖➖➖➖➖
+*▫️اليوم :* 
+*▫️التاريخ:* 
+*▫️رقم المحاضرة :*
+ ➖➖➖➖➖➖➖➖
 *♦️اسماء الغائبين بغير عذر :*
 
-*♦️ الحاضرين أقل من الوقت المحسوب :* ➖➖➖➖➖➖➖➖➖➖➖➖
+*♦️ الحاضرين أقل من الوقت المحسوب :*
+
+ ➖➖➖➖➖➖➖➖➖➖➖➖
 *❗ لكل غياب خصم [ 2 ]  درجات*
 *❗الغياب 3 محاضرات يُدرج  في قائمة الإنذار*
 *❗الغياب 4 محاضرات يؤدي إلى الحرمان*
@@ -369,13 +378,22 @@ ___________
 
 *Best of luck*`,
         tpl_t3: "Absence Report",
-        tpl_b3: `*📄 Absence Report :* *🔹 Department:*
-*🔹 Dept. Secretary:* *🔹 Deputy Secretary:*
-*🔹 Subject:* *🔹 Assistant:* ➖➖➖➖➖➖➖➖
-*▫️ Day:* *▫️ Date:* *▫️ Lecture No:* ➖➖➖➖➖➖➖➖
+        tpl_b3: `*📄 Absence Report :*
+         *🔹 Department:*
+*🔹 Dept. Secretary:* 
+*🔹 Deputy Secretary:*
+*🔹 Subject:* 
+*🔹 Assistant:* 
+➖➖➖➖➖➖➖➖
+*▫️ Day:*
+*▫️ Date:*
+*▫️ Lecture No:*
+➖➖➖➖➖➖➖➖
 *♦️ Absent without excuse:*
 
-*♦️ Present less than required time:* ➖➖➖➖➖➖➖➖➖➖➖➖
+*♦️ Present less than required time:*
+
+ ➖➖➖➖➖➖➖➖➖➖➖➖
 *❗ 2 points deducted per absence*
 *❗ 3 absences = Warning list*
 *❗ 4 absences = Deprivation*
