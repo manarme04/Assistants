@@ -168,7 +168,8 @@ ___________
 *ملاحظات الغياب:*
  *▫️ العدد الكلي :*
 *▪️عدد الحضور :*
- *▪️عدد الغياب  :* ⏲️ *تصنيف الغياب*⏲
+ *▪️عدد الغياب  :*
+⏲️ *تصنيف الغياب*⏲
 1️⃣ *الغياب بدون عذر* : 
 
 
@@ -374,7 +375,8 @@ ___________
 *Absence Notes:*
  *▫️ Total Count:*
 *▪️ Present Count:*
- *▪️ Absent Count:* ⏲️ *Absence Classification* ⏲
+ *▪️ Absent Count:* 
+⏲️ *Absence Classification* ⏲
 1️⃣ *Absent without excuse*: 
 
 
